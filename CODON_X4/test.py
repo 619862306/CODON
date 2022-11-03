@@ -69,9 +69,9 @@ def test(model):
     # Middleburry
     input_path = '/media/fourcard/5c64d0be-acf0-4ea0-8645-96feba23ea7e/user/cq/106/CaoqiResponse/16/middlebury/X4/'
     gray_path = '/media/fourcard/5c64d0be-acf0-4ea0-8645-96feba23ea7e/user/cq/106/CaoqiResponse/16/middlebury/color/'
-    fix_path = '/media/fourcard/5c64d0be-acf0-4ea0-8645-96feba23ea7e/user/cq/106/CaoqiResponse/16/middlebury/fix/'
+    #fix_path = '/media/fourcard/5c64d0be-acf0-4ea0-8645-96feba23ea7e/user/cq/106/CaoqiResponse/16/middlebury/fix/'
     label_path = '/media/fourcard/5c64d0be-acf0-4ea0-8645-96feba23ea7e/user/cq/106/CaoqiResponse/16/middlebury/label/'
-    test_path = '/media/fourcard/TOSHIBA EXT/CONDOM/CODON_X4/X4'
+    #test_path = '/media/fourcard/TOSHIBA EXT/CONDOM/CODON_X4/X4'
 
     # sintel(60)
     # input_path = '/home/user/cq/ni-folder/eassay_fixed_v2/X16/X16_Sintel_Stu_data/sintel/Bicubic/X4'
@@ -100,9 +100,9 @@ def test(model):
     input_dir = os.listdir(input_path)
     label_dir = os.listdir(label_path)
     gray_dir = os.listdir(gray_path)
-    test_dir = os.listdir(test_path)
+    #test_dir = os.listdir(test_path)
     gray_dir.sort()
-    test_dir.sort()
+    #test_dir.sort()
     input_dir.sort()
     label_dir.sort()
     i = 0
@@ -110,14 +110,14 @@ def test(model):
         input_name = os.path.join(input_path, gray_file)
         label_name = os.path.join(label_path, gray_file)
         gray_name = os.path.join(gray_path, gray_file)
-        fix_name = os.path.join(fix_path, gray_file)
-        test_name = os.path.join(test_path, gray_file)
+        #fix_name = os.path.join(fix_path, gray_file)
+        #test_name = os.path.join(test_path, gray_file)
 
         input_pic = cv2.imread(input_name, 0)
         label_pic = cv2.imread(label_name, 0)
         gray_pic = cv2.imread(gray_name, 0)
-        fix_pic = cv2.imread(fix_name, 0)
-        test_pic = cv2.imread(test_name, 0)
+        #fix_pic = cv2.imread(fix_name, 0)
+        #test_pic = cv2.imread(test_name, 0)
 
         input_pic = torch.from_numpy(input_pic / 255).float().unsqueeze(0).unsqueeze(0).cuda().half()
         gray_pic = torch.from_numpy(gray_pic / 255).float().unsqueeze(0).unsqueeze(0).cuda().half()
@@ -135,7 +135,7 @@ def test(model):
         # cv2.imwrite('/home/user/cq/ni-folder/eassay_fixed_v2/compare_sintel_tsu_nyu/nyu/X8/VDSR_450_result/' + gray_file, out)
         # cv2.imwrite('/home/user/cq/ni-folder/eassay_fixed_v2/compare_sintel_tsu_nyu/nyu/X8/MSG_450_result/' + gray_file, out)
         cv2.imwrite('CODON_result_save/' + gray_file, out)
-        RMSE_darkc = EvaluationResults(label_pic, test_pic)
+        RMSE_darkc = EvaluationResults(label_pic, out)
         ssim = ssim_exact(fix_pic / 255, out / 255)
         rmse_sum += RMSE_darkc
         ssim_sum += ssim
