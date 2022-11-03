@@ -1,3 +1,3 @@
 # CODON: On orchestrating cross-domain attentions for depth super-resolution
 
-The code will be released soon.
+Here we open source CODON related code, trained model and corresponding results.
