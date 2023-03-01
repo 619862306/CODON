@@ -9,9 +9,14 @@ The model here is further finetuned by us, and the effect is better than that sh
 <p align="justify">If you are interested in our work, please consider citing the following:</p>
 
 ```
-@inproceedings{yangapt,
-  title={APT-36K: A Large-scale Benchmark for Animal Pose Estimation and Tracking},
-  author={Yang, Yuxiang and Yang, Junjie and Xu, Yufei and Zhang, Jing and Lan, Long and Tao, Dacheng},
-  booktitle={Thirty-sixth Conference on Neural Information Processing Systems Datasets and Benchmarks Track}
+@article{yang2022codon,
+  title={CODON: on orchestrating cross-domain attentions for depth super-resolution},
+  author={Yang, Yuxiang and Cao, Qi and Zhang, Jing and Tao, Dacheng},
+  journal={International Journal of Computer Vision},
+  volume={130},
+  number={2},
+  pages={267--284},
+  year={2022},
+  publisher={Springer}
 }
 ```
